@@ -9,7 +9,6 @@ import {
   Typography,
   Paper,
 } from "@mui/material";
-import React from "react";
 import { FaCheck } from "react-icons/fa";
 import { ImCross } from "react-icons/im";
 import themes from "../utils/themes";
