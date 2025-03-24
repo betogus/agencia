@@ -1,5 +1,3 @@
-import React from "react";
-
 import { CSSProperties } from "react";
 import themes from "../utils/themes";
 import CompanyCard from "./CompanyCard";
