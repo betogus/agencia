@@ -5,7 +5,7 @@ import themes from '../utils/themes'
 
 const Header = () => {
   return (
-    <div style={styles.header}>
+    <div style={styles.container}>
         <img src={Logo} alt="Logo" style={styles.img}/>
         <ul style={styles.links}>
             <li>Testimonios</li>
@@ -19,13 +19,14 @@ const Header = () => {
 export default Header
 
 const styles = {
-    header: {
+    container: {
         display: 'flex',
         padding: '2em',
         justifyContent: 'space-between',
         alignItems: 'center',
         borderBottom: `2px solid ${themes.colors.primary}`,
         height: '2em',
+        marginBottom: '2em',
     },
     img: {
         height: '3em',
