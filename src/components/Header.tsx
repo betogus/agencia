@@ -1,3 +1,4 @@
+import { Button } from '@mui/material'
 import Logo from '../assets/logo.png'
 import themes from '../utils/themes'
 
@@ -8,10 +9,27 @@ const Header = () => {
     <div style={styles.container}>
         <img src={Logo} alt="Logo" style={styles.img}/>
         <ul style={styles.links}>
-            <li>Testimonios</li>
+            <li>Inicio</li>
+            <li>Nuestros servicios</li>
+            <li>Casos de éxito</li>
             <li>Contacto</li>
-            <li>Servicios</li>
         </ul>
+        <div>
+        <Button
+            variant="contained"
+            sx={{
+                backgroundColor: "#3A0CE2",
+                color: themes.colors.textSecondary,
+                borderRadius: '20em',
+                padding: '1em 4em',
+                fontFamily: themes.fonts.main,
+                fontWeight: 600,
+
+            }}
+        >
+            Consultar Presupuesto
+        </Button>
+            </div>
     </div>
   )
 }
@@ -21,10 +39,10 @@ export default Header
 const styles = {
     container: {
         display: 'flex',
-        padding: '2em',
+        padding: '2em 4em',
         justifyContent: 'space-between',
         alignItems: 'center',
-        borderBottom: `2px solid ${themes.colors.primary}`,
+        borderBottom: `4px solid #3A0CE2`,
         height: '2em',
         marginBottom: '2em',
     },
@@ -34,9 +52,10 @@ const styles = {
     links: {
         display: 'flex',
         justifyContent: 'space-between',
-        width: '20%',
+        width: '30%',
         listStyleType: 'none',
         color: themes.colors.textPrimary,
        fontFamily: themes.fonts.main,   
+       fontSize: '1.2em'
     }
 }

@@ -78,45 +78,49 @@ const Landing = () => {
               }}
             />
 
-<div className="checkbox-group">
-  {options.map((option, index) => (
-    <div key={index}>
-      <FormControlLabel
-        control={
-          <Checkbox
-            checked={selectedOptions.includes(option)}
-            onChange={() => handleToggleOption(option)}
-            icon={<RadioButtonUnchecked />}
-            checkedIcon={<RadioButtonChecked />}
-            sx={{
-              color: themes.colors.primary,
-              '&.Mui-checked': {
-                color: themes.colors.primary,
-              },
-            }}
-          />
-        }
-        label={<span style={{ fontWeight: "bold" }}>{option}</span>}
-      />
-    </div>
-  ))}
-</div>
-
+            <div className="checkbox-group">
+              {options.map((option, index) => (
+                <div key={index}>
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={selectedOptions.includes(option)}
+                        onChange={() => handleToggleOption(option)}
+                        icon={<RadioButtonUnchecked />}
+                        checkedIcon={<RadioButtonChecked />}
+                        sx={{
+                          color: themes.colors.primary,
+                          "&.Mui-checked": {
+                            color: themes.colors.primary,
+                          },
+                        }}
+                      />
+                    }
+                    label={<span style={{ fontWeight: "bold" }}>{option}</span>}
+                  />
+                </div>
+              ))}
+            </div>
           </FormControl>
 
-          <Button variant="contained"sx={{padding: "1em 2em",
-    backgroundColor: themes.colors.primary,
-    color: themes.colors.secondary,
-    fontSize: "1em",
-    marginTop: "1em",
-    cursor: "pointer",
-    borderRadius: "20em",
-    width: "50%",
-    "&:hover": {
-      backgroundColor: themes.colors.primary,
-      color: themes.colors.secondary,
-    }}}>
-            Contactanos
+          <Button
+            variant="contained"
+            sx={{
+              padding: "1em 2em",
+              backgroundColor: themes.colors.primary,
+              color: themes.colors.secondary,
+              fontSize: "1em",
+              marginTop: "1em",
+              cursor: "pointer",
+              borderRadius: "20em",
+              width: "50%",
+              "&:hover": {
+                backgroundColor: themes.colors.primary,
+                color: themes.colors.secondary,
+              },
+            }}
+          >
+            Consultar Presupuesto
           </Button>
         </div>
       </div>
