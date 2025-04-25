@@ -24,9 +24,9 @@ const theme = {
     recContainer: "Poppins, sans-serif",
   },
   fontWeights: {
-    normal: "400" as "400",
-    subtitle: "500" as "500",
-    bold: "700" as "700",
+    normal: "400" as const,
+    subtitle: "500" as const,
+    bold: "700" as const,
   },
 };
 

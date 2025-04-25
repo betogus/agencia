@@ -5,7 +5,7 @@ import "./style.css";
 import Plan from "./components/Plan";
 import Companies from "./components/Companies";
 import Footer from "./components/Footer";
-import { ImWhatsapp } from "react-icons/im";
+import Whatsapp from "./components/Whatsapp";
 
 function App() {
   return (
@@ -18,9 +18,7 @@ function App() {
         <Companies/>
       </div>
       <Footer />
-      <div style={{position: "fixed", bottom: "1em", right: "1em"}}>
-        <ImWhatsapp size={50} color="green"/>
-      </div>
+      <Whatsapp />
     </div>
   );
 }
