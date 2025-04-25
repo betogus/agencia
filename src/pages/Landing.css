@@ -1,0 +1,62 @@
+/* Landing.css */
+.landing-container {
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    justify-content: center;
+    background: linear-gradient(#ffffff, #E1DDDD);
+  }
+  
+  .landing-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70%;
+    justify-self: center;
+  }
+  
+  .landing-subtitle {
+    font-size: 2em;
+    color: #333;
+    font-family: 'Arial', sans-serif;
+    font-style: italic;
+    text-align: center;
+  }
+  
+  .landing-form-container {
+    display: flex;
+    flex-direction: column;
+    border: 4px solid #EB262E;
+    border-radius: 2rem;
+    width: 60%;
+    padding: 2em;
+    justify-self: center;
+    height: fit-content;
+  }
+  
+  .landing-button {
+    padding: 1em 2em;
+    background-color: #EB262E;
+    color: #fff;
+    font-size: 1em;
+    margin-top: 1em;
+    cursor: pointer;
+    border-radius: 20em;
+    width: 50%;
+  }
+
+  .checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border: 1px solid #ff4081; /* o el color primario que uses */
+    border-radius: 2rem;
+    padding: 1em;
+    gap: 0.5em;
+  }
+
+  .checkbox-group > div {
+    flex-basis: 48%;
+  }
+  

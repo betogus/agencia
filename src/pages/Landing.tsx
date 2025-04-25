@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Logo from "../assets/logo.png";
 import {
   Button,
@@ -6,7 +7,9 @@ import {
   FormControlLabel,
   TextField,
 } from "@mui/material";
+import { RadioButtonUnchecked, RadioButtonChecked } from "@mui/icons-material";
 import themes from "../utils/themes";
+import "./Landing.css";
 
 const options = [
   "Estrategia y creación de contenido",
@@ -21,82 +24,35 @@ const options = [
   "Organización de Eventos",
 ];
 
-const styles = {
-  container: {
-    display: "grid",
-    height: "100vh",
-    gridTemplateColumns: "1fr 1fr",
-    gap: "20px",
-    justifyContent: "center",
-  },
-  title: {
-    fontSize: "2em",
-    color: "#333",
-    fontFamily: "Arial",
-  },
-  subtitle: {
-    fontSize: "2em",
-    color: "#333",
-    fontFamily: themes.fonts.main,
-    fontStyle: "italic",
-    textAlign: "center" as "center",
-  },
-  button: {
-    padding: "1em 2em",
-    backgroundColor: themes.colors.primary,
-    color: "#fff",
-    fontSize: "1em",
-    marginTop: "1em",
-    cursor: "pointer",
-    borderRadius: "20em",
-    width: "50%",
-  },
-  formContainer: {
-    display: "flex",
-    flexDirection: "column" as "column",
-    border: `1px solid ${themes.colors.primary}`,
-    borderRadius: "2rem",
-    width: "60%",
-    padding: "2em",
-    justifySelf: "center",
-    height: "fit-content",
-  },
-};
-
 const Landing = () => {
+  const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
+
+  const handleToggleOption = (option: string) => {
+    setSelectedOptions((prev) =>
+      prev.includes(option)
+        ? prev.filter((item) => item !== option)
+        : [...prev, option]
+    );
+  };
+
   return (
-    <div style={styles.container}>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          width: "70%",
-          justifySelf: "center",
-        }}
-      >
+    <div className="landing-container">
+      <div className="landing-left">
         <img src={Logo} alt="Logo" />
-        <h1 style={styles.subtitle}>
+        <h1 className="landing-subtitle">
           ¡Que tu empresa refleje lo que querés comunicar!
         </h1>
       </div>
-      <div style={styles.formContainer}>
-        <div style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-            }}>
-          <FormControl
-            
-          >
+
+      <div className="landing-form-container">
+        <div className="form-inner">
+          <FormControl>
             <TextField
               id="name"
               label="Nombre y Apellido"
               variant="outlined"
               sx={{
-                ".MuiOutlinedInput-root": {
-                  borderRadius: "20em",
-                },
+                ".MuiOutlinedInput-root": { borderRadius: "20em" },
                 marginBottom: "1em",
                 width: "100%",
               }}
@@ -106,9 +62,7 @@ const Landing = () => {
               label="Razón social o empresa"
               variant="outlined"
               sx={{
-                ".MuiOutlinedInput-root": {
-                  borderRadius: "20em",
-                },
+                ".MuiOutlinedInput-root": { borderRadius: "20em" },
                 marginBottom: "1em",
                 width: "100%",
               }}
@@ -118,32 +72,50 @@ const Landing = () => {
               label="Correo Electrónico"
               variant="outlined"
               sx={{
-                ".MuiOutlinedInput-root": {
-                  borderRadius: "20em",
-                },
+                ".MuiOutlinedInput-root": { borderRadius: "20em" },
                 marginBottom: "1em",
                 width: "100%",
               }}
             />
-            <div
-              style={{
-                display: "flex",
-                flexWrap: "wrap",
-                justifyContent: "space-between",
-                border: `1px solid ${themes.colors.primary}`,
-                borderRadius: "2rem",
-                padding: "1em",
-              }}
-            >
-              {options.map((option, index) => (
-                <div key={index} style={{ flexBasis: "48%" }}>
-                  {" "}
-                  <FormControlLabel control={<Checkbox />} label={option} />
-                </div>
-              ))}
-            </div>
+
+<div className="checkbox-group">
+  {options.map((option, index) => (
+    <div key={index}>
+      <FormControlLabel
+        control={
+          <Checkbox
+            checked={selectedOptions.includes(option)}
+            onChange={() => handleToggleOption(option)}
+            icon={<RadioButtonUnchecked />}
+            checkedIcon={<RadioButtonChecked />}
+            sx={{
+              color: themes.colors.primary,
+              '&.Mui-checked': {
+                color: themes.colors.primary,
+              },
+            }}
+          />
+        }
+        label={<span style={{ fontWeight: "bold" }}>{option}</span>}
+      />
+    </div>
+  ))}
+</div>
+
           </FormControl>
-          <Button variant="contained"  style={styles.button}>
+
+          <Button variant="contained"sx={{padding: "1em 2em",
+    backgroundColor: themes.colors.primary,
+    color: themes.colors.secondary,
+    fontSize: "1em",
+    marginTop: "1em",
+    cursor: "pointer",
+    borderRadius: "20em",
+    width: "50%",
+    "&:hover": {
+      backgroundColor: themes.colors.primary,
+      color: themes.colors.secondary,
+    }}}>
             Contactanos
           </Button>
         </div>
@@ -151,4 +123,5 @@ const Landing = () => {
     </div>
   );
 };
+
 export default Landing;
